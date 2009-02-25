@@ -1,0 +1,183 @@
+@CHARSET "UTF-8";
+
+ul.productTabs,
+ul.productTabs ul {
+	float: left;
+	margin: 0;
+	padding: 0;
+	background: #333333;
+	font-size: 10px;
+	font-weight: bold;
+	background-color: #000000;
+	width: 100%;
+	background-image: url(/modules/Cart/images/ptab.png);
+	}
+
+ul.productTabs li {
+	position: relative;
+	list-style: none;
+	float: left;
+	height: 27px;
+	background-image: url(/modules/Cart/images/ptab_back.png);
+	/* background-position: center right;
+	background-repeat: no-repeat; */
+}
+
+ul.productTabs li.title {
+	position: relative;
+	list-style: none;
+	float: left;
+	height: 27px;
+	background-image: none;
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+ul.productTabs li.title h1 {
+	padding: 7px 15px 7px 15px;
+	font-size: 10px;
+	font-weight: bold;
+	color: #333;
+	margin: 0;
+}
+
+ul.productTabs li.divider {
+	position: relative;
+	list-style: none;
+	float: left;
+	height: 27px;
+	width: 8px;
+	background-image: url(/modules/Cart/images/ptab_div.png);
+	}
+
+ul.productTabs li.end {
+	position: relative;
+	list-style: none;
+	float: left;
+	height: 27px;
+	width: 52px;
+	background-image: url(/modules/Cart/images/ptab_end.png);
+	}
+
+ul.productTabs li a {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	padding: 7px 15px 7px 15px;
+	/* border-right: 2px solid #FFFFFF; */
+}
+
+/* Fix IE. Hide from IE Mac \*/
+* html ul.productTabs li { float: left; height: 1%; }
+* html ul.productTabs li a { height: 1%; }
+/* End */
+
+ul.productTabs ul {
+	position: absolute;
+	display: none;
+	}
+
+ul.productTabs ul li ul {
+	position: absolute;
+	display: none;
+	left: 185px;
+	top: 0px;
+	}
+ul.productTabs li ul li a {
+	padding: 8px 15px 7px; } /* Sub Menu Styles */
+
+ul.productTabs ul li ul li ul {
+	position: absolute;
+	display: none;
+	left: 185px;
+	top: 0px;
+	}
+ul.productTabs li ul li ul li a {
+	padding: 8px 15px 7px; } /* SubSub Menu Styles */
+
+ul.productTabs li:hover ul ul,
+ul.productTabs li.over ul ul { display: none; } /* Hide sub-menus initially */
+
+ul.productTabs li:hover ul ul ul,
+ul.productTabs li.over ul ul ul{ display: none; } /* Hide sub-sub-menus initially */
+
+ul.productTabs li:hover ul ul ul ul,
+ul.productTabs li.over ul ul ul ul { display: none; } /* Hide sub-sub-sub-menus initially */
+
+ul.productTabs li:hover ul,
+ul.productTabs li li:hover ul,
+ul.productTabs li li li:hover ul,
+ul.productTabs li li li li:hover ul,
+ul.productTabs li.over ul,
+ul.productTabs li li.over ul,
+ul.productTabs li li li.over ul,
+ul.productTabs li li li li.over ul { display: block; } /* The magic */
+
+ul.productTabs li.tab { 
+	background-image: url(/modules/Cart/images/ptab_back.png);
+	background-position: center right;
+	background-repeat: no-repeat;
+	}
+
+div#productPane ul.productTabs li a.ptabtitle:hover { color: #FFFFFF; text-decoration: none; }
+
+ul.productTabs li.tab:hover,ul.productTabs li.over {
+	background-image: url(/modules/Cart/images/ptab_hover.png);
+	}
+
+h2 {
+font-family:Verdana, Arial, sans-serif;
+color:#333;
+font-size:18px;
+font-weight:100;
+text-decoration:none;
+}
+
+#contentcenter h3 {
+font-family:Verdana, Arial, sans-serif;
+color:#333;
+font-size:15px;
+font-weight:900;
+text-decoration:none;
+padding-left: 10px;
+}
+
+#contentcenter {
+	color:#333;
+}
+
+
+div#productPane {
+background-color: #f8f8f8;
+border: 1px solid #efefef;
+}
+
+div#productPane table {
+width: 100%;
+}
+
+div#productPane p a {
+text-decoration: underline;
+}
+
+
+div.element {
+display: inline;
+}
+
+label.element {
+width: 105px;
+float: left;
+}
+
+ol li {
+margin-bottom: 10px;
+}
+
+label[for=buy] {
+display: none;
+}
+

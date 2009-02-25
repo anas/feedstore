@@ -1,0 +1,52 @@
+hr{
+	clear:both;
+}
+
+.errRow{
+	clear:both;
+	margin:10px 10px 0 0;
+	overflow:hidden;
+}
+
+.errNB{
+	float:left;
+	margin:0 10px 0 0;
+	width:15px;
+}
+
+.errFile{
+	float:left;
+	margin:0 10px 0 0;
+	width:650px;
+}
+
+.errLine{
+	float:left;
+	margin:0 10px 0 0;
+	width:50px;
+}
+
+.errFunc{
+	float:left;
+	margin:0 10px 0 0;
+}
+
+.debugEven{
+	background-color:gray;
+}
+
+.debugOdd{
+	background-color:white;
+}
+
+.HTTPRow{
+	clear:both;
+	margin:10px 10px 0 0;
+	overflow:hidden;
+}
+
+.HTTPVar{
+	float:left;
+	margin:0 10px 0 0;
+	width:200px;
+}

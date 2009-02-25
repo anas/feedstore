@@ -1,0 +1,3 @@
+1. in the optionsedit.tpl template, make sure that there is an actual product attribute before displaying the possible options for it (make sure it is an EDIT and not ADD)
+2. in the Cart.php, getAdminInterface, attribute section, addedit action: make sure that we are in the edit mode before calculating the possible values of an attribute (when we are in the add mode, there is no possible values for the attribute because there is no selected attribute)
+ 

@@ -1,0 +1,22 @@
+Supplier,Category,Product Type,Product,Weight,Pallet Count,Price,Product Info for Website,Photo
+Hi-Brow,Any,Milk Replacer,Bison Milk,10 kg,65,$47.50
+Hi-Brow,Any,Milk Replacer,Brown's Milk Frosted Grain Flakes,18 kg,50,$10.95
+Hi-Brow,Dairy,Milk Replacer,Calf Grower,20 kg,50,$64.95
+Hi-Brow,Dairy,Milk Replacer,Calf Grower,10 kg,65,$37.75
+Hi-Brow,Dairy,Milk Replacer,Calf Grower,4 kg,100,$19.50
+Hi-Brow,Dairy,Milk Replacer,Calf Starter,20 kg,50,$75.55
+Hi-Brow,Dairy,Milk Replacer,Calf Starter,10 kg,65,$43.15
+Hi-Brow,Dairy,Milk Replacer,Calf Starter,4 kg,100,$22.65
+Hi-Brow,Equine,Milk Replacer,Foal Milk,10 kg,48,$46.50
+Hi-Brow,Equine,Milk Replacer,Foal Milk,4 kg,100,$24.75
+Hi-Brow,Goat,Milk Replacer,Goat Kid Milk,20 kg,50,$66.95
+Hi-Brow,Goat,Milk Replacer,Goat Kid Milk,10 kg,65,$33.95
+Hi-Brow,Goat,Milk Replacer,Goat Kid Milk,4 kg,100,$20.50
+Hi-Brow,Sheep,Milk Replacer,Lamb Milk,20 kg,50,$79.50
+Hi-Brow,Sheep,Milk Replacer,Lamb Milk,10 kg,65,$45.25
+Hi-Brow,Sheep,Milk Replacer,Lamb Milk,4 kg,100,$22.75
+Hi-Brow,Llama,Milk Replacer,Llama Milk,4 kg,100,$26.45
+Hi-Brow,Hog,Milk Replacer,Piglet,10 kg,65,$35.60
+Hi-Brow,Equine,Complete Horse Feeds,Satin Finish,25 kg,50,$37.00
+Hi-Brow,Equine,Complete Horse Feeds,Sho-Glo,25 lb Tub,50,$56.25
+Hi-Brow,Equine,Complete Horse Feeds,Sho-Glo,5 lb,360,$56.25
