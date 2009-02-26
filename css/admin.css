@@ -796,6 +796,7 @@ border:none;
 
 form ol li {
 font-size:12px;
+clear:both;
 }
 
 form label.element {

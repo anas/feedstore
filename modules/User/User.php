@@ -230,11 +230,11 @@ class Module_User extends Module {
 
 		$statuses = array (1 => 'Active', 0 => 'Disabled');		
 		
-		$form->addElement( 'text', 'a_username', 'Username');
+		$form->addElement( 'text', 'a_username', 'Email address(Username)');
 		$form->addElement( 'password', 'a_password', 'Password');
 		$form->addElement( 'password', 'a_password_confirm', 'Confirm Password');
 		$form->addElement( 'text',  'a_name', 'Full Name');
-		$form->addElement( 'text',  'a_email', 'Email Address');
+		//$form->addElement( 'text',  'a_email', 'Email Address');
 		
 		if ($admin)
 			$form->addElement( 'select', 'a_status', 'Active Status', $statuses);
@@ -251,6 +251,7 @@ class Module_User extends Module {
 			}
 			$form->addElement( 'select',  'a_group', 'Member Group', $assignableGroup);
 		}
+		$form->addElement( 'advcheckbox',  'a_join_newsletter', 'Sign me up for your E-Newsletter');
 		
 		$form->addElement( 'submit', 'a_submit', 'Save' );
 
@@ -261,22 +262,24 @@ class Module_User extends Module {
 		$defaultValues ['a_email'] = $user->getEmail();
 		$defaultValues ['a_password'] = null;
 		$defaultValues ['a_password_confirm'] = null;
-		
+		$defaultValues ['a_join_newsletter'] = $user->getJoinNewsletter();
 		if ($admin)
 			$defaultValues ['a_status'] = $user->getActiveStatus();
 		
 		$form->setDefaults( $defaultValues );
 				
 
-		$form->addRule( 'a_username', 'Please enter a username', 'required', null );
-		$form->addRule( 'a_name', 'Please enter the user\'s name', 'required', null );
-		$form->addRule( 'a_email', 'Please enter an email address', 'required', null );
-		$form->addRule( 'a_email', 'Please enter a valid email address', 'email', null );
+		$form->addRule( 'a_username', 'Please enter a username', 'required', null ,'client');
+		$form->addRule( 'a_username', 'Please enter an email address', 'required', null  ,'client');
+		$form->addRule( 'a_username', 'Please enter a valid email address for the username', 'email', null  ,'client');
+		$form->addRule( 'a_name', 'Please enter your name', 'required', null  ,'client');
+		//$form->addRule( 'a_email', 'Please enter an email address', 'required', null );
+		//$form->addRule( 'a_email', 'Please enter a valid email address', 'email', null );
 		if (!isset($_REQUEST ['id'])) {
-			$form->addRule( 'a_password', 'Please enter a password', 'required', null );
-			$form->addRule( 'a_password_confirm', 'Please confirm the passwords match', 'required', null );
+			$form->addRule( 'a_password', 'Please enter a password', 'required', null  ,'client');
+			$form->addRule( 'a_password_confirm', 'Please confirm the passwords match', 'required', null  ,'client');
 		}
-		$form->addRule(array('a_password', 'a_password_confirm'), 'The passwords do not match', 'compare', null);
+		$form->addRule(array('a_password', 'a_password_confirm'), 'The passwords do not match', 'compare', null ,'client');
 
 		if (isset( $_REQUEST ['a_submit'] ) && $form->validate()) {
 			$this->template = 'admin/user.tpl';
@@ -299,7 +302,8 @@ class Module_User extends Module {
 		}
 		$user->setUsername($_REQUEST['a_username']);
 		$user->setName($_REQUEST['a_name']);
-		$user->setEmail($_REQUEST['a_email']);
+		$user->setEmail($_REQUEST['a_username']);
+		$user->setJoinNewsletter(@$_REQUEST['a_join_newsletter']);
 		if (isset($_REQUEST['a_group'])) {
 			$user->setAuthGroup($_REQUEST['a_group']);
 		} else {

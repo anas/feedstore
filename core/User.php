@@ -59,8 +59,6 @@ class User extends Auth_Container {
 			$this->permissions = $this->getPerms();
 			$this->join_newsletter = @$result['auth_join_newsletter'];
 			//echo $result['aut_address'] . "<br>" . $result['aut_shipping_address'] . "))<br>";
-			$this->address = new Address(@$result['aut_address']);
-			$this->shipping_address = new Address(@$result['aut_shipping_address']);
 		}
 	}
 	
@@ -94,9 +92,7 @@ class User extends Auth_Container {
 						aut_phone    = '". Database::singleton()->escape($this->phone) ."',
 						aut_status   = '". Database::singleton()->escape($this->status) ."',					
 						auth_join_newsletter = '". Database::singleton()->escape($this->join_newsletter) ."',					
-						aut_last_touched = NOW(),
-						aut_address  = '". Database::singleton()->escape(@$this->getAddress()->getId()) ."',
-						aut_shipping_address  = '". Database::singleton()->escape(@$this->getShippingAddress()->getId()) ."'
+						aut_last_touched = NOW()
 						where aut_id = '". Database::singleton()->escape($this->usr_id) ."'";
 			$result = Database::singleton()->query($sql);
 		}
@@ -116,16 +112,21 @@ class User extends Auth_Container {
 						aut_status   = '". Database::singleton()->escape($this->status) ."',				
 						auth_join_newsletter = '". Database::singleton()->escape($this->join_newsletter) ."',					
 						aut_last_touched = NOW(),
-						aut_address  = '". Database::singleton()->escape(@$this->getAddress()->getId()) ."',
-						aut_shipping_address  = '". Database::singleton()->escape(@$this->getShippingAddress()->getId()) ."',
 						aut_agp_id   = '". Database::singleton()->escape($this->auth_group) . "'";
 			
 			$result = Database::singleton()->query($sql);
 			//$e_result = Database::singleton()->query_fetch($e_sql);
 			$this->setId(Database::singleton()->lastInsertedID());
+			
+			$headers = 'From: ' . SiteConfig::get("EComm::AdminEmail") . '\r\n';
+			$smarty = new Smarty();
+			$user = new User($this->getId());
+			$smarty->assign('user', $user);
+			$message = $smarty->fetch("create_new_account_email.tpl");
+			mail($this->email, "Your account has been created", $message, $headers);
 		}
 		
-		include_once('modules/Mail/include/MailUser.php');
+		include_once(SITE_ROOT . '/modules/Mail/include/MailUser.php');
 		$nUser = new MailUser($this->email);
 		if ($this->join_newsletter){
 			$name = explode(" ", trim($this->name));
@@ -350,7 +351,7 @@ class User extends Auth_Container {
 		$form->addElement( 'text',  'a_name', 'Full Name');
 		//$form->addElement( 'text',  'a_email', 'Email Address');
 		$form->addElement( 'text',  'a_phone', 'Phone number');
-		$form->addElement( 'checkbox',  'a_join_newsletter', 'Sign me up for your E-Newsletter');
+		$form->addElement( 'advcheckbox',  'a_join_newsletter', 'Sign me up for your E-Newsletter');
 		
 		$form->addElement('header','billing_address_header','Billing Address');
 		

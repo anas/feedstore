@@ -28,7 +28,11 @@ HTML_Quickform::registerElementType('dbimage', 'HTML_Quickform_dbimage.php', 'HT
  * @subpackage Core
  */
 class Form extends HTML_QuickForm {
-
+	
+	private $processed = false;
+	function setProcessed() {$this->processed = true;}
+	function isProcessed() {return $this->processed;}
+	
 	public function display() {
 		$renderer =& new HTML_QuickForm_Renderer_Tableless();
 		$this->accept($renderer);
